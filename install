@@ -40,6 +40,8 @@ if [[ `uname -r` == *"ARCH" ]]; then
 	sudo pacman -S --needed --noconfirm tmux
 	sudo pacman -S --needed --noconfirm git
 	sudo pacman -S --needed --noconfirm bash-completion
+elif [ -e "/etc/fedora-release" ]; then
+	sudo dnf install -y python lua vim curl tmux git bash-completion
 fi
 
 if [ -d "/usr/local/go" ]; then
