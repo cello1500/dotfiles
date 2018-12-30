@@ -2,8 +2,10 @@
 
 if [[ `uname -r` == *"ARCH" ]]; then
 	sudo pacman -S --needed --noconfirm vim
+	sudo pacman -S --needed --noconfirm ctags
 elif [ -e "/etc/fedora-release" ]; then
 	sudo dnf install -y vim
+	sudo dnf install -y ctags
 fi
 
 
