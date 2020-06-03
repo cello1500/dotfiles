@@ -27,13 +27,7 @@ highlight cursorlinenr ctermfg=yellow
 highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " pathogen will load the other modules
-execute pathogen#infect()
-
-" we want to tell the syntastic module when to run
-" we want to see code highlighting and checks when  we open a file
-" but we don't care so much that it reruns when we close the file
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+"execute pathogen#infect()
 
 " we also want to get rid of accidental trailing whitespace on save
 autocmd BufWritePre * :%s/\s\+$//e
@@ -41,6 +35,21 @@ autocmd BufWritePre * :%s/\s\+$//e
 " tell vim to allow you to copy between files, remember your cursor
 " position and other little nice things like that
 set viminfo='100,\"2500,:200,%,n~/.viminfo
+
+"---------------------------------------------
+" GO-SYNTASTIC
+"---------------------------------------------
+" we want to tell the syntastic module when to run
+" we want to see code highlighting and checks when  we open a file
+" but we don't care so much that it reruns when we close the file
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 "---------------------------------------------
 " GO-VIM
@@ -303,41 +312,41 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "---------------------------------------------
 " UltiSnips
 "---------------------------------------------
-function! g:UltiSnips_Complete()
-  call UltiSnips#ExpandSnippet()
-  if g:ulti_expand_res == 0
-    if pumvisible()
-      return "\<C-n>"
-    else
-      call UltiSnips#JumpForwards()
-      if g:ulti_jump_forwards_res == 0
-        return "\<TAB>"
-      endif
-    endif
-  endif
-  return ""
-endfunction
-
-function! g:UltiSnips_Reverse()
-  call UltiSnips#JumpBackwards()
-  if g:ulti_jump_backwards_res == 0
-    return "\<C-P>"
-  endif
-
-  return ""
-endfunction
-
-
-if !exists("g:UltiSnipsJumpForwardTrigger")
-  let g:UltiSnipsJumpForwardTrigger = "<tab>"
-endif
-
-if !exists("g:UltiSnipsJumpBackwardTrigger")
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-endif
-
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
-au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
+"function! g:UltiSnips_Complete()
+"  call UltiSnips#ExpandSnippet()
+"  if g:ulti_expand_res == 0
+"    if pumvisible()
+"      return "\<C-n>"
+"    else
+"      call UltiSnips#JumpForwards()
+"      if g:ulti_jump_forwards_res == 0
+"        return "\<TAB>"
+"      endif
+"    endif
+"  endif
+"  return ""
+"endfunction
+"
+"function! g:UltiSnips_Reverse()
+"  call UltiSnips#JumpBackwards()
+"  if g:ulti_jump_backwards_res == 0
+"    return "\<C-P>"
+"  endif
+"
+"  return ""
+"endfunction
+"
+"
+"if !exists("g:UltiSnipsJumpForwardTrigger")
+"  let g:UltiSnipsJumpForwardTrigger = "<tab>"
+"endif
+"
+"if !exists("g:UltiSnipsJumpBackwardTrigger")
+"  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+"endif
+"
+"au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsExpandTrigger . " <C-R>=g:UltiSnips_Complete()<cr>"
+"au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " <C-R>=g:UltiSnips_Reverse()<cr>"
 
 "---------------------------------------------
 " vim-choosewin
@@ -347,7 +356,7 @@ au InsertEnter * exec "inoremap <silent> " . g:UltiSnipsJumpBackwardTrigger . " 
 nmap  -  <Plug>(choosewin)
 
 "---------------------------------------------
-" vim-choosewin
+" vim-tagbar
 "---------------------------------------------
 
 nmap <F8> :TagbarToggle<CR>
