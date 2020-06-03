@@ -10,56 +10,58 @@ fi
 
 
  # Install latest VIM Pathogen
-#mkdir -p ~/.vim/autoload ~/.vim/bundle
+#mkdir -p ~/.vim/autoload ~/.vim/bundle/start
 #curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 
+mkdir -p ~/.vim/pack/plugins/start
+
 # install lastest VIM Syntastic
-rm -rf ~/.vim/bundle/syntastic 2> /dev/null
-git clone https://github.com/scrooloose/syntastic.git ~/.vim/bundle/syntastic
+rm -rf ~/.vim/pack/plugins/start/syntastic 2> /dev/null
+git clone https://github.com/scrooloose/syntastic.git ~/.vim/pack/plugins/start/syntastic
 
 # Install lastest VIM Sensible
-rm -rf  ~/.vim/bundle/vim-sensible 2> /dev/null
-git clone git://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible
+rm -rf  ~/.vim/pack/plugins/start/vim-sensible 2> /dev/null
+git clone git://github.com/tpope/vim-sensible.git ~/.vim/pack/plugins/start/vim-sensible
 
 # Install lastest VIM tagbar (package ctags needs to be installed previously)
-rm -rf  ~/.vim/bundle/tagbar 2> /dev/null
-git clone https://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
+rm -rf  ~/.vim/pack/plugins/start/tagbar 2> /dev/null
+git clone https://github.com/majutsushi/tagbar ~/.vim/pack/plugins/start/tagbar
 
 # Install lastest VIM NERDTree
-rm -rf  ~/.vim/bundle/nerdtree 2> /dev/null
-git clone https://github.com/scrooloose/nerdtree ~/.vim/bundle/nerdtree
+rm -rf  ~/.vim/pack/plugins/start/nerdtree 2> /dev/null
+git clone https://github.com/scrooloose/nerdtree ~/.vim/pack/plugins/start/nerdtree
 
 # Install lastest VIM lightline
-rm -rf  ~/.vim/bundle/lightline 2> /dev/null
-git clone https://github.com/itchyny/lightline.vim ~/.vim/bundle/lightline
+rm -rf  ~/.vim/pack/plugins/start/lightline 2> /dev/null
+git clone https://github.com/itchyny/lightline.vim ~/.vim/pack/plugins/start/lightline
 
 # Install lastest VIM neocomplete
-rm -rf  ~/.vim/bundle/neocomplete 2> /dev/null
-git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/bundle/neocomplete
+rm -rf  ~/.vim/pack/plugins/start/neocomplete 2> /dev/null
+git clone https://github.com/Shougo/neocomplete.vim.git ~/.vim/pack/plugins/start/neocomplete
 
 # Install lastest VIM ultiSnips
-#rm -rf  ~/.vim/bundle/ultisnips 2> /dev/null
-#git clone https://github.com/SirVer/ultisnips.git ~/.vim/bundle/ultisnips
+#rm -rf  ~/.vim/pack/plugins/start/ultisnips 2> /dev/null
+#git clone https://github.com/SirVer/ultisnips.git ~/.vim/pack/plugins/start/ultisnips
 
 # Install lastest VIM vim-choosewin
-rm -rf  ~/.vim/bundle/vim-choosewin 2> /dev/null
-git clone https://github.com/t9md/vim-choosewin.git ~/.vim/bundle/vim-choosewin
+rm -rf  ~/.vim/pack/plugins/start/vim-choosewin 2> /dev/null
+git clone https://github.com/t9md/vim-choosewin.git ~/.vim/pack/plugins/start/vim-choosewin
 
 # Install VIM crlp.vim (used by vim-go)
-#rm -rf  ~/.vim/bundle/ctrlp.vim 2> /dev/null
-#git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
+#rm -rf  ~/.vim/pack/plugins/start/ctrlp.vim 2> /dev/null
+#git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/pack/plugins/start/ctrlp.vim
 
 # Install lastest VIM splitjoin
-rm -rf  ~/.vim/bundle/splitjoin 2> /dev/null
-git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/bundle/splitjoin
+rm -rf  ~/.vim/pack/plugins/start/splitjoin 2> /dev/null
+git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/pack/plugins/start/splitjoin
 
 # Install VIM Conque-Term
 #vim 'https://conque.googlecode.com/files/conque_2.3.vmb' -c ':so % | q'
 
 # Install lastest VIM vim-go
 if [ -d "/usr/local/go" ]; then
-	rm -rf  ~/.vim/bundle/vim-go 2> /dev/null
-	git clone https://github.com/fatih/vim-go.git ~/.vim/bundle/vim-go
+	rm -rf  ~/.vim/pack/plugins/start/vim-go 2> /dev/null
+	git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
 	vim +GoInstallBinaries
 fi
 
