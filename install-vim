@@ -62,13 +62,13 @@ git clone git://github.com/AndrewRadev/splitjoin.vim.git ~/.vim/pack/plugins/sta
 if [ -d "/usr/local/go" ]; then
 	rm -rf  ~/.vim/pack/plugins/start/vim-go 2> /dev/null
 	git clone https://github.com/fatih/vim-go.git ~/.vim/pack/plugins/start/vim-go
-	vim +GoInstallBinaries
+	vim -c "GoInstallBinaries" -c "qa"
 fi
 
 
 # Rebuild the help tag files for the pluggins
-#vim -c "Helptags" -c "qa"
-vim +Helptags
+vim -c "Helptags" -c "qa"
+#vim +Helptags
 
 # Cleanup
 rm ~/.dotfiles/vim/vim 2> /dev/null

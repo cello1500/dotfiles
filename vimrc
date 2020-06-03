@@ -300,7 +300,7 @@ let g:neocomplete#sources._ = ['buffer', 'member', 'tag', 'file', 'dictionary']
 let g:neocomplete#sources.go = ['omni']
 
 " disable sorting
-call neocomplete#custom#source('_', 'sorters', [])
+"call neocomplete#custom#source('_', 'sorters', [])
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
