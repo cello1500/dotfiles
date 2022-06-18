@@ -45,7 +45,7 @@ if [ ! -e ~/code ]; then
 	echo \*\*\* Creating ~/code directory structure
 	mkdir -p ~/code/go/src
 	# install all go additional tools
-	go get golang.org/x/tools/cmd/...
+	go install golang.org/x/tools/cmd/...
 else
 	echo \*\*\* Updating Vendor packages
 	go get -u all
